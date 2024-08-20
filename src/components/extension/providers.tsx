@@ -1,6 +1,7 @@
 import type { FC } from "react"
 
 import { ExtensionProvider } from "~contexts/extension-context"
+import { SummaryProvider } from "~contexts/summary-context"
 
 type TProps = {
   children: React.ReactNode
@@ -9,7 +10,9 @@ type TProps = {
 const Providers: FC<TProps> = ({ children }) => {
   return (
     <>
-      <ExtensionProvider>{children}</ExtensionProvider>
+      <ExtensionProvider>
+        <SummaryProvider>{children}</SummaryProvider>
+      </ExtensionProvider>
     </>
   )
 }

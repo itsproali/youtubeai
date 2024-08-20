@@ -1,7 +1,7 @@
 import { useExtension } from "~contexts/extension-context"
 
 import Chat from "./chat"
-import Summary from "./summary"
+import Summary from "../summary/summary"
 import Transcript from "./transcript"
 
 const ExtensionPanels = () => {
