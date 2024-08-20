@@ -2,7 +2,6 @@ import { BarChartIcon } from "@radix-ui/react-icons"
 
 import type { IModel, IPrompt } from "~interface/common.interface"
 
-// export const openai_api_key = "sk-UoyPVTaHdfRciq3qzOH3PuRABGwLXzfQnZAMfzaHS_T3BlbkFJxCwZCw2WktJO1bathhQ-fbjzuOAHKKm9ANOxEJyHwA"
 export const openai_api_key = process.env.PLASMO_PUBLIC_OPENAI_API_KEY
 
 export const models: IModel[] = [
