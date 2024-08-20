@@ -5,17 +5,7 @@ import { useSummary } from "~contexts/summary-context"
 import SummarySkeleton from "./summary-skeleton"
 
 const SummaryContent = () => {
-  const {
-    generateSummary,
-    summaryContent,
-    summaryIsError,
-    summaryIsGenerating,
-    summaryModel,
-    summaryPrompt,
-    setSummaryContent,
-    setSummaryPrompt,
-    setSummaryModel
-  } = useSummary()
+  const { generateSummary, summaryContent, summaryIsGenerating } = useSummary()
 
   if (!summaryContent && summaryIsGenerating) {
     return (
@@ -31,8 +21,8 @@ const SummaryContent = () => {
         <Button
           onClick={generateSummary}
           variant="outline"
-          className="w-full h-12">
-          <span className="text-sm">Generate Summary</span>
+          className="w-full h-12 text-foreground">
+          Generate Summary
         </Button>
       </div>
     )
