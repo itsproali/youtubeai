@@ -32,7 +32,6 @@ const skipButtonSelector = ".ytp-skip-ad-button"
 
 // Function to auto-click the button
 const clickSkipButton = () => {
-  console.log("Dom Changed", new Date())
   const button = document.querySelector(
     skipButtonSelector
   ) as HTMLElement | null
