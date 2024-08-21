@@ -42,7 +42,6 @@ const Extension = () => {
         const data = await getVideoData(videoId)
         setExtensionData(data)
         setExtensionLoading(false)
-        console.log(data)
       }
     }
     fetchVideoData()
