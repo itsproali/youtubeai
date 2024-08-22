@@ -32,7 +32,7 @@ const SummaryActions = () => {
   }
 
   return (
-    <div className="flex w-full items-center justify-between sticky top-0 z-50 bg-background text-foreground pt-3.5 pb-2 px-3">
+    <div className="flex w-full items-center justify-between sticky left-0 top-0 z-50 !bg-background text-foreground pt-3.5 pb-2 px-3">
       <Select
         value={summaryModel.value}
         onValueChange={(value) =>

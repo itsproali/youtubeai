@@ -10,3 +10,9 @@ export interface IPrompt {
   label: string
   content: string
 }
+
+export interface ITranscript {
+  text: string
+  startTime: number
+  endTime: number
+}

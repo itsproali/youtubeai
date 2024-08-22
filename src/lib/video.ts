@@ -1,3 +1,5 @@
+import type { ITranscript } from "~interface/common.interface"
+
 const yt_player_res_regex =
   /ytInitialPlayerResponse\s*=\s*({.+?})\s*;\s*(?:var\s+(?:meta|head)|<\/script|\n)/
 
@@ -53,4 +55,40 @@ export async function getVideoData(videoId: string) {
   }
 
   return { metaData, transcript: null }
+}
+
+export function cleanJSONTranscript(transcript): ITranscript[] {
+  const chunks = []
+  let currentChunk = ""
+  let currentStartTime = transcript?.events[0]?.tStartMs
+  let currentEndTime = currentStartTime
+
+  transcript?.events?.forEach((event) => {
+    event?.segs?.forEach((seg) => {
+      const segmentText = seg?.utf8?.replace(/\n/g, " ")
+      currentEndTime = event?.tStartMs + (seg?.tOffsetMs || 0)
+      if ((currentChunk + segmentText)?.length > 300) {
+        chunks.push({
+          text: currentChunk?.trim(),
+          startTime: currentStartTime,
+          endTime: currentEndTime
+        })
+
+        currentChunk = segmentText
+        currentStartTime = currentEndTime
+      } else {
+        currentChunk += segmentText
+      }
+    })
+  })
+
+  if (currentChunk) {
+    chunks.push({
+      text: currentChunk?.trim(),
+      startTime: currentStartTime,
+      endTime: currentEndTime
+    })
+  }
+
+  return chunks
 }
