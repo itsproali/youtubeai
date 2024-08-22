@@ -2,7 +2,7 @@ import axios from "axios"
 import type { PlasmoCSConfig } from "plasmo"
 
 export const config: PlasmoCSConfig = {
-  matches: ["https://viewstats-xi.vercel.app/google*"]
+  matches: ["https://app.nexlev.io/login*"]
 }
 
 // Function to get accessToken from URL parameters
