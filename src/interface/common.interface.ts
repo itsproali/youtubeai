@@ -16,3 +16,13 @@ export interface ITranscript {
   startTime: number
   endTime: number
 }
+
+export interface IUser {
+  displayName: string
+  email: string
+  googleId: string
+  firstName: string
+  lastName: string
+  createdAt: Date
+  updatedAt: Date
+}
